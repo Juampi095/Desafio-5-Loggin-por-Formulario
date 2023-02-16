@@ -19,8 +19,8 @@ const mongoURL = `mongodb+srv://${process.env.USER_MONGO}:${process.env.PASS_MON
 
 app.use(express.json());
 
-app.engine("handlebars", engine());
-app.set("view engine", "handlebars");
+app.engine("hbs", engine());
+app.set("view engine", "hbs");
 app.set("views", "./src/views");
 app.use(express.static("public"));
 
@@ -43,7 +43,7 @@ app.use(
   })
 );
 
-//BD
+
 mongoose.set("strictQuery", false);
 mongoose.connect(mongoURL, (err) => {
   if (err) {
